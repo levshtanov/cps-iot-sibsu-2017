@@ -1,0 +1,49 @@
+<!doctype html>
+<meta character = utf8>
+<html>
+    
+<head>
+    <title>Example with buttons</title>
+</head>
+    
+    <body>
+        <canvas id="myCanvas" width="578" height="200"></canvas>
+
+        <div id="print1"></div>
+
+        <br>
+
+        <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    
+    <script type="text/javascript">
+     var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+      
+   // var io = require("socket.io")
+        "use strict";
+        var divElement = document.getElementById("print1");
+        
+        function log(msg) {
+            divElement.innerHTML += "<div>" + msg + "</div>";
+            }
+        
+        var socket = io.connect("172.16.22.119:8080")
+
+        socket.on("messageToClient", function (msg){
+          log(msg); // add msg
+        if(msg == 1){
+            context.fillStyle = 'yellow';
+            context.fillRect(0,0,200,300);
+        }
+        if(msg == 0){
+            context.fillStyle = 'red';
+            context.fillRect(0,0,200,300);
+        }
+});
+
+    </script>
+
+    </body>
+    
+</html>
+

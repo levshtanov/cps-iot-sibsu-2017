@@ -1,0 +1,74 @@
+<!doctype html>
+<meta character = utf8>
+<html>
+    
+<head>
+    <title>Example with buttons</title>
+</head>
+    
+    <body>
+        <button id="buttonOn1" style="width: 80px;" onClick="on1()">On 1</button>
+        <button id="buttonOff1" style="width: 80px;" onClick="off1()">Off 1</button>
+        <br>
+        <button id="buttonOn2" style="width: 80px;" onClick="on2()">On 2</button>
+        <button id="buttonOff2" style="width: 80px;" onClick="off2()">Off 2</button>
+        <br>
+        <button id="buttonOn3" style="width: 80px;" onClick="on3()">On 3</button>
+        <button id="buttonOff3" style="width: 80px;" onClick="off3()">Off 3</button>
+        <br>
+        <button id="buttonOn4" style="width: 80px;" onClick="on4()">On 4</button>
+        <button id="buttonOff4" style="width: 80px;" onClick="off4()">Off 4</button>
+        <br>
+        <button id="buttonOn4" style="width: 80px;" onClick="on5()">On all</button>
+        <button id="buttonOff4" style="width: 80px;" onClick="off5()">Off all</button>
+    
+    </body>
+    
+    <br>
+    
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    
+    <script type="text/javascript">
+   // var io = require("socket.io")
+        var socket = io.connect("172.16.22.97:8080")
+ 
+        function on1 () {
+            socket.emit("commandToArduino", 1);
+        }
+
+        function off1 () {
+            socket.emit("commandToArduino", 0);
+        }
+
+        function on2 () {
+            socket.emit("commandToArduino", 3);
+        }
+
+        function off2 () {
+            socket.emit("commandToArduino", 2);
+        }
+        function on3 () {
+            socket.emit("commandToArduino", 5);
+        }
+
+        function off3 () {
+            socket.emit("commandToArduino", 4);
+        }
+        function on4 () {
+            socket.emit("commandToArduino", 7);
+        }
+
+        function off4 () {
+            socket.emit("commandToArduino", 6);
+        }
+        function on5 () {
+            socket.emit("commandToArduino", 9);
+        }
+
+        function off5 () {
+            socket.emit("commandToArduino", 8);
+        }
+    </script>
+    
+</html>
+
